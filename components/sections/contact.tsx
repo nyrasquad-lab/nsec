@@ -16,7 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import SectionHeading from '../section-heading';
 import Reveal from '../reveal';
-import { supabase } from '@/lib/supabase-client';
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL as string;
+const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string;
 
 type Status = 'idle' | 'loading' | 'sent' | 'error';
 
@@ -46,21 +47,40 @@ export default function Contact() {
     e.preventDefault();
     if (status !== 'idle') return;
     setStatus('loading');
-    const { error } = await supabase.from('assessments').insert({
-      full_name: form.full_name,
-      email: form.email,
-      organization: form.organization || null,
-      service: form.service || null,
-      message: form.message,
-    });
-    if (error) {
+    try {
+      const res = await fetch(`${SUPABASE_URL}/functions/v1/submit-assessment`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          apikey: SUPABASE_ANON_KEY,
+        },
+        body: JSON.stringify({
+          full_name: form.full_name,
+          email: form.email,
+          organization: form.organization || null,
+          service: form.service || null,
+          message: form.message,
+        }),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        const msg =
+          res.status === 429
+            ? 'Too many requests — please try again later.'
+            : (body as { error?: string }).error ||
+              'Submission failed. Please try again.';
+        throw new Error(msg);
+      }
+
+      setStatus('sent');
+      setForm({ full_name: '', email: '', organization: '', service: '', message: '' });
+      setTimeout(() => setStatus('idle'), 5200);
+    } catch (err) {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5200);
-      return;
     }
-    setStatus('sent');
-    setForm({ full_name: '', email: '', organization: '', service: '', message: '' });
-    setTimeout(() => setStatus('idle'), 5200);
   };
 
   return (
