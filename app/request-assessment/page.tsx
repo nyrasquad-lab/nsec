@@ -9,15 +9,7 @@ import { Select } from '@/components/ui/select';
 import { CheckCircle, Loader2, ShieldCheck } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
-const services = [
-  'SOC Monitoring',
-  'Threat Intelligence',
-  'Penetration Testing',
-  'Incident Response',
-  'Compliance & Audit',
-  'Network Security',
-  'Other',
-];
+const services = ['SOC Monitoring', 'Threat Intelligence', 'Penetration Testing', 'Incident Response', 'Compliance & Audit', 'Network Security', 'Other'];
 
 export default function RequestAssessmentPage() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -36,12 +28,8 @@ export default function RequestAssessmentPage() {
       message: formData.get('message'),
     };
     const { error } = await supabase.from('assessments').insert(payload);
-    if (error) {
-      setStatus('error');
-      setErrorMsg(error.message);
-    } else {
-      setStatus('success');
-    }
+    if (error) { setStatus('error'); setErrorMsg(error.message); }
+    else { setStatus('success'); }
   }
 
   if (status === 'success') {
@@ -52,9 +40,7 @@ export default function RequestAssessmentPage() {
             <CheckCircle className="h-8 w-8 text-cyan-400" />
           </div>
           <h2 className="text-2xl font-bold text-white">Assessment Requested</h2>
-          <p className="mt-3 text-white/50">
-            Thank you for reaching out. Our security team will contact you within 24 hours to schedule your cybersecurity assessment.
-          </p>
+          <p className="mt-3 text-white/50">Thank you for reaching out. Our security team will contact you within 24 hours to schedule your cybersecurity assessment.</p>
         </div>
       </div>
     );
@@ -73,11 +59,8 @@ export default function RequestAssessmentPage() {
               <span className="font-mono text-xs text-cyan-500/60">]</span>
             </div>
             <h1 className="text-4xl font-bold text-white">Request a Security Assessment</h1>
-            <p className="mt-4 text-white/40">
-              Get a comprehensive evaluation of your security posture — no obligation.
-            </p>
+            <p className="mt-4 text-white/40">Get a comprehensive evaluation of your security posture — no obligation.</p>
           </div>
-
           <div className="rounded-2xl border border-white/8 bg-white/[0.03] p-8 backdrop-blur-sm">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="space-y-2">
@@ -103,15 +86,9 @@ export default function RequestAssessmentPage() {
                 <Label htmlFor="message" className="text-white/70">Tell us about your security needs *</Label>
                 <Textarea id="message" name="message" required rows={4} placeholder="Describe your current security challenges..." className="bg-white/5 border-white/10 text-white placeholder:text-white/20" />
               </div>
-
               {status === 'error' && <p className="text-sm text-red-400">{errorMsg}</p>}
-
               <Button type="submit" className="w-full bg-cyan-500 text-[#080f1d] hover:bg-cyan-400" disabled={status === 'loading'}>
-                {status === 'loading' ? (
-                  <><Loader2 className="h-4 w-4 animate-spin" /> Submitting...</>
-                ) : (
-                  'Submit Assessment Request'
-                )}
+                {status === 'loading' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Submitting...</>) : ('Submit Assessment Request')}
               </Button>
             </form>
           </div>

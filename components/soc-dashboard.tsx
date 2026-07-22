@@ -33,14 +33,7 @@ export default function SocDashboard() {
   const dashOffset = circumference - (score / 100) * circumference;
 
   return (
-    <div
-      className="w-full max-w-[500px] overflow-hidden rounded-2xl"
-      style={{
-        background: 'linear-gradient(145deg, #0d1f35 0%, #0a1628 100%)',
-        border: '1px solid rgba(255,255,255,0.08)',
-        boxShadow: '0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.06)',
-      }}
-    >
+    <div className="w-full max-w-[500px] overflow-hidden rounded-2xl" style={{ background: 'linear-gradient(145deg, #0d1f35 0%, #0a1628 100%)', border: '1px solid rgba(255,255,255,0.08)', boxShadow: '0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.06)' }}>
       <div className="flex items-center justify-between border-b border-white/5 px-4 py-3">
         <div className="flex items-center gap-1.5">
           <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
@@ -65,12 +58,7 @@ export default function SocDashboard() {
             <svg className="h-28 w-28" viewBox="0 0 128 128">
               <circle cx="64" cy="64" r="54" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="10" />
               <circle cx="64" cy="64" r="54" fill="none" stroke="url(#cyanGrad)" strokeWidth="10" strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={dashOffset} transform="rotate(-90 64 64)" style={{ transition: 'stroke-dashoffset 1s ease' }} />
-              <defs>
-                <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#06b6d4" />
-                  <stop offset="100%" stopColor="#22d3ee" />
-                </linearGradient>
-              </defs>
+              <defs><linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stopColor="#06b6d4" /><stop offset="100%" stopColor="#22d3ee" /></linearGradient></defs>
             </svg>
             <div className="absolute flex flex-col items-center">
               <div className="flex items-center gap-1">
@@ -79,9 +67,7 @@ export default function SocDashboard() {
               </div>
             </div>
           </div>
-          <div className="mt-2 text-center">
-            <p className="font-mono text-[10px] uppercase tracking-widest text-white/30">Security Score</p>
-          </div>
+          <div className="mt-2 text-center"><p className="font-mono text-[10px] uppercase tracking-widest text-white/30">Security Score</p></div>
         </div>
 
         <div className="bg-[#0a1628] p-5">

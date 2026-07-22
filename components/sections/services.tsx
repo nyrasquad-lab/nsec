@@ -16,16 +16,11 @@ export default function ServicesSection() {
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-cyan-500/60">What We Do</p>
           <h2 className="text-3xl font-bold text-white md:text-4xl">Comprehensive Security Services</h2>
-          <p className="mt-4 text-base text-white/40">
-            Tailored cybersecurity solutions backed by elite expertise and cutting-edge intelligence
-          </p>
+          <p className="mt-4 text-base text-white/40">Tailored cybersecurity solutions backed by elite expertise and cutting-edge intelligence</p>
         </div>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <div
-              key={s.title}
-              className="group rounded-xl border border-white/5 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:border-cyan-500/20 hover:bg-white/[0.05]"
-            >
+            <div key={s.title} className="group rounded-xl border border-white/5 bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:border-cyan-500/20 hover:bg-white/[0.05]">
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-cyan-500/20 bg-cyan-500/10">
                 <s.icon className="h-5 w-5 text-cyan-400" />
               </div>

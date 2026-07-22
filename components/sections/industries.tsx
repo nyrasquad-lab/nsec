@@ -16,9 +16,7 @@ export default function IndustriesSection() {
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-cyan-500/60">Who We Protect</p>
           <h2 className="text-3xl font-bold text-white md:text-4xl">Industries We Serve</h2>
-          <p className="mt-4 text-base text-white/40">
-            Deep domain expertise across critical sectors
-          </p>
+          <p className="mt-4 text-base text-white/40">Deep domain expertise across critical sectors</p>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind) => (
