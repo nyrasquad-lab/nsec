@@ -1,65 +1,27 @@
-import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import SiteHeader from '@/components/site-header';
+import SiteFooter from '@/components/site-footer';
+import { AuthProvider } from '@/components/admin/auth-context';
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-space-grotesk',
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nsecintelligence.com'),
-  title: {
-    default: 'NSEC Intelligence Group. Protecting Organizations Against Modern Cyber Threats.',
-    template: '%s | NSEC Intelligence Group',
-  },
-  description:
-    'NSEC Intelligence Group delivers elite cybersecurity services: penetration testing, red & blue teams, threat intelligence, digital forensics, cloud security, incident response and compliance for enterprise organizations.',
-  keywords: [
-    'cybersecurity',
-    'penetration testing',
-    'red team',
-    'blue team',
-    'threat intelligence',
-    'digital forensics',
-    'cloud security',
-    'incident response',
-    'compliance',
-    'NSEC Intelligence Group',
-  ],
-  authors: [{ name: 'NSEC Intelligence Group' }],
-  openGraph: {
-    title: 'NSEC Intelligence Group',
-    description:
-      'Protecting Organizations Against Modern Cyber Threats. Elite, enterprise-grade cybersecurity services.',
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'NSEC Intelligence Group',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'NSEC Intelligence Group',
-    description:
-      'Protecting Organizations Against Modern Cyber Threats. Elite, enterprise-grade cybersecurity services.',
-  },
-  robots: { index: true, follow: true },
+  title: 'IT Support Hub — Enterprise IT Services & Support',
+  description: 'Enterprise-grade IT services, cloud solutions, and cybersecurity to keep your business running 24/7.',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <AuthProvider>
+          <SiteHeader />
+          <main className="min-h-screen">{children}</main>
+          <SiteFooter />
+        </AuthProvider>
+      </body>
     </html>
   );
 }

@@ -13,21 +13,23 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const { token } = await req.json();
+    const token = req.headers.get("X-Admin-Token");
+    if (!token) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    }
 
     const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
     const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const adminClient = createClient(supabaseUrl, serviceRoleKey);
 
-    if (token) {
-      const adminId = token.split(".")[0];
-      const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+    const { data: session } = await adminClient
+      .from("admin_sessions")
+      .select("admin_id")
+      .eq("token", token)
+      .maybeSingle();
 
-      await adminClient.from("security_events").insert({
-        admin_id: adminId,
-        event_type: "logout",
-        ip_address: ip,
-      });
+    if (session) {
+      await adminClient.from("admin_sessions").delete().eq("token", token);
     }
 
     return new Response(JSON.stringify({ success: true }), { headers: { ...corsHeaders, "Content-Type": "application/json" } });
