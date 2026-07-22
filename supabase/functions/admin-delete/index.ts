@@ -34,7 +34,6 @@ Deno.serve(async (req: Request) => {
       return new Response(JSON.stringify({ error: "You cannot delete your own account" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    // Deactivate instead of delete (data safety)
     const { error } = await adminClient.from("admins").update({ is_active: false }).eq("id", admin_id);
     if (error) throw error;
 

@@ -28,11 +28,9 @@ Deno.serve(async (req: Request) => {
     const serviceRoleKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const adminClient = createClient(supabaseUrl, serviceRoleKey);
 
-    // Extract admin ID from token if present
     const token = req.headers.get("X-Admin-Token");
     const adminId = token ? token.split(".")[0] : null;
 
-    // Fetch the current ticket
     const { data: ticket, error: fetchError } = await adminClient
       .from("tickets").select("*").eq("id", ticket_id).maybeSingle();
 
@@ -44,14 +42,12 @@ Deno.serve(async (req: Request) => {
     const oldStatus = ticket.status;
     let replyAdded = false;
 
-    // Update ticket status if changed
     if (status_changed && status !== oldStatus) {
       const { error: updateError } = await adminClient
         .from("tickets").update({ status, updated_by: adminId }).eq("id", ticket_id);
       if (updateError) throw updateError;
     }
 
-    // Insert reply if message provided
     if (message && message.trim()) {
       const statusChangeStr = status_changed && status !== oldStatus ? `${oldStatus} → ${status}` : null;
       const { error: replyError } = await adminClient
@@ -63,7 +59,6 @@ Deno.serve(async (req: Request) => {
       replyAdded = true;
     }
 
-    // Audit log
     if (adminId) {
       await adminClient.from("audit_logs").insert({
         admin_id: adminId, action: "ticket_updated",
@@ -72,7 +67,7 @@ Deno.serve(async (req: Request) => {
       });
     }
 
-    // Send email notification (best-effort)
+    // Email notification (best-effort)
     const statusLabels: Record<string, string> = {
       open: "Open", in_progress: "In Progress", resolved: "Resolved", closed: "Closed",
     };

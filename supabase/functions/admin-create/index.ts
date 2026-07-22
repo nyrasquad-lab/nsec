@@ -25,8 +25,7 @@ Deno.serve(async (req: Request) => {
 
     const creatorId = token.split(".")[0];
 
-    // Verify creator is an active admin
-    const { data: creator } = await adminClient.from("admins").select("id, role").eq("id", creatorId).maybeSingle();
+    const { data: creator } = await adminClient.from("admins").select("id, role, is_active").eq("id", creatorId).maybeSingle();
     if (!creator || !creator.is_active) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
@@ -41,7 +40,6 @@ Deno.serve(async (req: Request) => {
       return new Response(JSON.stringify({ error: "Password must be at least 8 characters" }), { status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" } });
     }
 
-    // Check if email already exists
     const { data: existing } = await adminClient.from("admins").select("id").eq("email", email.toLowerCase()).maybeSingle();
     if (existing) {
       return new Response(JSON.stringify({ error: "An admin with this email already exists" }), { status: 409, headers: { ...corsHeaders, "Content-Type": "application/json" } });
@@ -57,13 +55,11 @@ Deno.serve(async (req: Request) => {
 
     if (insertError) throw insertError;
 
-    // Audit log
     await adminClient.from("audit_logs").insert({
       admin_id: creatorId, action: "admin_created", entity_type: "admin", entity_id: newAdmin.id,
       details: { email: newAdmin.email, role: newAdmin.role },
     });
 
-    // Security event
     await adminClient.from("security_events").insert({
       admin_id: newAdmin.id, event_type: "admin_created",
       details: { created_by: creatorId, role: newAdmin.role },
