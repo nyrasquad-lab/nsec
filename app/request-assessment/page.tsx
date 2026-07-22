@@ -27,7 +27,6 @@ export default function RequestAssessmentPage() {
     e.preventDefault();
     setStatus('loading');
     setErrorMsg('');
-
     const formData = new FormData(e.currentTarget);
     const payload = {
       full_name: formData.get('full_name'),
@@ -36,7 +35,6 @@ export default function RequestAssessmentPage() {
       service: formData.get('service'),
       message: formData.get('message'),
     };
-
     const { error } = await supabase.from('assessments').insert(payload);
     if (error) {
       setStatus('error');

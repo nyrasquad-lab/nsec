@@ -17,17 +17,11 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-[#080f1d]">
-      {/* Network dots background */}
       <NetworkBackground />
-
-      {/* Radial glow top-left */}
       <div className="pointer-events-none absolute left-0 top-0 h-[600px] w-[600px] -translate-x-1/4 -translate-y-1/4 rounded-full bg-cyan-500/5 blur-3xl" />
 
-      {/* Content */}
       <div className="container relative z-10 grid min-h-[calc(100vh-4rem)] grid-cols-1 items-center gap-12 py-16 lg:grid-cols-2 lg:py-0">
-        {/* Left */}
         <div>
-          {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2">
             <span className="font-mono text-xs text-cyan-500/60">[</span>
             <span className="h-2 w-2 rounded-full bg-green-400 shadow-[0_0_6px_rgba(74,222,128,0.8)]" />
@@ -37,7 +31,6 @@ export default function Hero() {
             <span className="font-mono text-xs text-cyan-500/60">]</span>
           </div>
 
-          {/* Heading */}
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl lg:text-7xl">
             NSEC Intelligence
             <br />
@@ -52,7 +45,6 @@ export default function Hero() {
             />
           </h1>
 
-          {/* Subheading */}
           <p className="mt-5 text-xl font-medium text-white/60 leading-snug">
             Protecting Organizations Against{' '}
             <span className="text-cyan-400">Modern Cyber</span>
@@ -60,12 +52,10 @@ export default function Hero() {
             Threats
           </p>
 
-          {/* Body */}
           <p className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/45">
             We combine elite offensive expertise, AI-driven threat intelligence, and 24/7 defense operations to safeguard your critical assets across cloud, network, and endpoint.
           </p>
 
-          {/* CTAs */}
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link href="/request-assessment">
               <button className="flex items-center gap-2 rounded-lg bg-cyan-500 px-6 py-3 text-sm font-semibold text-[#080f1d] transition-all hover:bg-cyan-400 active:scale-95">
@@ -85,7 +75,6 @@ export default function Hero() {
             </Link>
           </div>
 
-          {/* Certifications */}
           <div className="mt-8 flex flex-wrap items-center gap-6">
             <div className="flex items-center gap-2 text-sm text-white/40">
               <svg className="h-4 w-4 text-cyan-500/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
@@ -102,7 +91,6 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — SOC Dashboard */}
         <div className="flex justify-center lg:justify-end">
           <SocDashboard />
         </div>

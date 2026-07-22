@@ -26,7 +26,6 @@ export default function AboutSection() {
           </p>
         </div>
 
-        {/* Stats */}
         <div className="mb-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="rounded-xl border border-white/5 bg-white/[0.03] p-6 text-center">
@@ -36,7 +35,6 @@ export default function AboutSection() {
           ))}
         </div>
 
-        {/* Pillars */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p) => (
             <div key={p.title} className="rounded-xl border border-white/5 bg-white/[0.03] p-6 text-center">

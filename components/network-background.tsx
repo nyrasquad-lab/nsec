@@ -28,14 +28,12 @@ export default function NetworkBackground() {
 
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
       for (const d of dots) {
         d.x += d.vx;
         d.y += d.vy;
         if (d.x < 0 || d.x > canvas.width) d.vx *= -1;
         if (d.y < 0 || d.y > canvas.height) d.vy *= -1;
       }
-
       for (let i = 0; i < dots.length; i++) {
         for (let j = i + 1; j < dots.length; j++) {
           const dx = dots[i].x - dots[j].x;
@@ -51,14 +49,12 @@ export default function NetworkBackground() {
           }
         }
       }
-
       for (const d of dots) {
         ctx.beginPath();
         ctx.arc(d.x, d.y, 1.5, 0, Math.PI * 2);
         ctx.fillStyle = 'rgba(0,212,255,0.4)';
         ctx.fill();
       }
-
       animId = requestAnimationFrame(draw);
     };
 
@@ -69,11 +65,5 @@ export default function NetworkBackground() {
     };
   }, []);
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 h-full w-full"
-      style={{ opacity: 0.6 }}
-    />
-  );
+  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" style={{ opacity: 0.6 }} />;
 }

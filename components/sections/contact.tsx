@@ -27,13 +27,18 @@ export default function ContactSection() {
             </div>
           ))}
         </div>
-        <div className="mt-10 text-center">
-          <Link href="/request-assessment">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <Link href="/contact">
             <button className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-8 py-3 text-sm font-semibold text-[#080f1d] transition-all hover:bg-cyan-400">
-              Request a Security Assessment
+              Contact Us
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
+            </button>
+          </Link>
+          <Link href="/request-assessment">
+            <button className="inline-flex items-center gap-2 rounded-lg border border-cyan-500/60 px-8 py-3 text-sm font-medium text-cyan-400 transition-all hover:bg-cyan-500/10">
+              Request Assessment
             </button>
           </Link>
         </div>

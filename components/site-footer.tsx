@@ -32,7 +32,7 @@ export default function SiteFooter() {
           <div>
             <h3 className="mb-4 text-sm font-semibold text-white/60">Company</h3>
             <ul className="space-y-2 text-sm text-white/35">
-              {[['About', '/#about'], ['Industries', '/#industries'], ['Research', '/#research'], ['Contact', '/#contact']].map(([label, href]) => (
+              {[['About', '/#about'], ['Industries', '/#industries'], ['Research', '/#research'], ['Contact', '/contact']].map(([label, href]) => (
                 <li key={label}><Link href={href} className="hover:text-white/60 transition-colors">{label}</Link></li>
               ))}
             </ul>

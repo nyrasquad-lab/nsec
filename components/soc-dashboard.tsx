@@ -41,7 +41,6 @@ export default function SocDashboard() {
         boxShadow: '0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.06)',
       }}
     >
-      {/* Title bar */}
       <div className="flex items-center justify-between border-b border-white/5 px-4 py-3">
         <div className="flex items-center gap-1.5">
           <div className="h-3 w-3 rounded-full bg-[#ff5f57]" />
@@ -60,24 +59,12 @@ export default function SocDashboard() {
         </div>
       </div>
 
-      {/* Top panels: Security Score + Threat Level */}
       <div className="grid grid-cols-2 gap-px bg-white/5 border-b border-white/5">
-        {/* Security Score */}
         <div className="bg-[#0a1628] p-5">
           <div className="relative flex flex-col items-center justify-center">
             <svg className="h-28 w-28" viewBox="0 0 128 128">
               <circle cx="64" cy="64" r="54" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="10" />
-              <circle
-                cx="64" cy="64" r="54"
-                fill="none"
-                stroke="url(#cyanGrad)"
-                strokeWidth="10"
-                strokeLinecap="round"
-                strokeDasharray={circumference}
-                strokeDashoffset={dashOffset}
-                transform="rotate(-90 64 64)"
-                style={{ transition: 'stroke-dashoffset 1s ease' }}
-              />
+              <circle cx="64" cy="64" r="54" fill="none" stroke="url(#cyanGrad)" strokeWidth="10" strokeLinecap="round" strokeDasharray={circumference} strokeDashoffset={dashOffset} transform="rotate(-90 64 64)" style={{ transition: 'stroke-dashoffset 1s ease' }} />
               <defs>
                 <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#06b6d4" />
@@ -97,7 +84,6 @@ export default function SocDashboard() {
           </div>
         </div>
 
-        {/* Threat Level */}
         <div className="bg-[#0a1628] p-5">
           <div className="mb-2 flex items-center justify-between">
             <span className="font-mono text-[10px] uppercase tracking-widest text-white/30">Threat Level</span>
@@ -110,25 +96,19 @@ export default function SocDashboard() {
             </div>
           </div>
           <div className="mt-4 flex items-end justify-between">
-            <span className="font-mono text-2xl font-light text-white/70">
-              {mins}:{secs}
-            </span>
+            <span className="font-mono text-2xl font-light text-white/70">{mins}:{secs}</span>
             <span className="font-mono text-xs text-white/30">now</span>
           </div>
           <div className="mt-4 space-y-1.5">
             {[75, 45, 85].map((w, i) => (
               <div key={i} className="h-1 rounded-full bg-white/5">
-                <div
-                  className="h-1 rounded-full bg-cyan-500/40"
-                  style={{ width: `${w}%`, transition: 'width 1s ease' }}
-                />
+                <div className="h-1 rounded-full bg-cyan-500/40" style={{ width: `${w}%`, transition: 'width 1s ease' }} />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Three stats */}
       <div className="grid grid-cols-3 gap-px bg-white/5 border-b border-white/5">
         {[
           { icon: Lock, value: assets.toLocaleString(), label: 'Protected Assets', color: 'text-cyan-400' },
@@ -143,7 +123,6 @@ export default function SocDashboard() {
         ))}
       </div>
 
-      {/* Live Activity */}
       <div className="p-4">
         <div className="mb-3 flex items-center justify-between">
           <span className="font-mono text-[10px] uppercase tracking-widest text-white/30">Live Activity</span>
