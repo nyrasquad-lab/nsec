@@ -32,7 +32,7 @@ const FEATURES = [
   {
     icon: Building2,
     title: 'Enterprise Security',
-    desc: 'Programs scaled for complex estates — multi-cloud, hybrid and thousands of connected assets.',
+    desc: 'Programs scaled for complex estates: multi-cloud, hybrid and thousands of connected assets.',
   },
   {
     icon: BrainCircuit,

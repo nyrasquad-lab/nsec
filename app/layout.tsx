@@ -17,11 +17,11 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL('https://nsecintelligence.com'),
   title: {
-    default: 'NSEC Intelligence Group — Protecting Organizations Against Modern Cyber Threats',
+    default: 'NSEC Intelligence Group. Protecting Organizations Against Modern Cyber Threats.',
     template: '%s | NSEC Intelligence Group',
   },
   description:
-    'NSEC Intelligence Group delivers elite cybersecurity services — penetration testing, red & blue teams, threat intelligence, digital forensics, cloud security, incident response and compliance for enterprise organizations.',
+    'NSEC Intelligence Group delivers elite cybersecurity services: penetration testing, red & blue teams, threat intelligence, digital forensics, cloud security, incident response and compliance for enterprise organizations.',
   keywords: [
     'cybersecurity',
     'penetration testing',

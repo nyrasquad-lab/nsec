@@ -24,7 +24,7 @@ export default function Careers() {
                   <span className="text-gradient">the best in the field</span>
                 </h2>
                 <p className="mt-4 max-w-xl text-base leading-relaxed text-cyber-muted">
-                  We are always looking for elite operators — red teamers,
+                  We are always looking for elite operators: red teamers,
                   threat hunters, cloud specialists and detection engineers.
                   Grow your craft on the hardest problems, with a team that
                   values depth over theatre.

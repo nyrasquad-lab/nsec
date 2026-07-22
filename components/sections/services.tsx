@@ -35,7 +35,7 @@ const SERVICES = [
   {
     icon: Radar,
     title: 'Threat Intelligence',
-    desc: 'Actionable intelligence on emerging adversaries, TTPs and vulnerabilities — mapped to your specific attack surface.',
+    desc: 'Actionable intelligence on emerging adversaries, TTPs and vulnerabilities, mapped to your specific attack surface.',
   },
   {
     icon: Fingerprint,
@@ -45,7 +45,7 @@ const SERVICES = [
   {
     icon: Cloud,
     title: 'Cloud Security',
-    desc: 'Architecture review and continuous posture management across AWS, Azure and GCP — from IAM to workload runtime.',
+    desc: 'Architecture review and continuous posture management across AWS, Azure and GCP, from IAM to workload runtime.',
   },
   {
     icon: Zap,
@@ -55,7 +55,7 @@ const SERVICES = [
   {
     icon: ClipboardCheck,
     title: 'Compliance',
-    desc: 'Mapping and gap analysis for SOC 2, ISO 27001, HIPAA, PCI-DSS and NIST — with evidence ready for audit.',
+    desc: 'Mapping and gap analysis for SOC 2, ISO 27001, HIPAA, PCI-DSS and NIST, with evidence ready for audit.',
   },
   {
     icon: GraduationCap,
@@ -76,7 +76,7 @@ export default function ServicesSection() {
               Full-spectrum <span className="text-gradient">security services</span>
             </>
           }
-          subtitle="From offensive validation to continuous defense and compliance — a single partner for your entire security program."
+          subtitle="From offensive validation to continuous defense and compliance. A single partner for your entire security program."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

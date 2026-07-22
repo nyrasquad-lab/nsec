@@ -23,7 +23,7 @@ type Status = 'idle' | 'loading' | 'sent' | 'error';
 
 const DETAILS = [
   { icon: Mail, label: 'Email', value: 'contact@nsecintelligence.com' },
-  { icon: Phone, label: 'Phone', value: '+1 (555) 010-2025' },
+  { icon: Phone, label: 'Phone', value: '+255 382 422 97' },
   { icon: MapPin, label: 'HQ', value: '1200 Cyber Plaza, Arlington, VA' },
   { icon: Clock, label: 'SOC', value: '24/7 · 365 days a year' },
 ];
@@ -68,7 +68,7 @@ export default function Contact() {
         const body = await res.json().catch(() => ({}));
         const msg =
           res.status === 429
-            ? 'Too many requests — please try again later.'
+            ? 'Too many requests. Please try again later.'
             : (body as { error?: string }).error ||
               'Submission failed. Please try again.';
         throw new Error(msg);
@@ -208,7 +208,7 @@ export default function Contact() {
                       className="inline-flex items-center gap-2"
                     >
                       <AlertCircle className="h-4 w-4" />
-                      Something went wrong — try again
+                      Something went wrong. Try again
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -269,7 +269,7 @@ export default function Contact() {
                   </span>
                 </motion.div>
                 <div className="absolute bottom-4 left-4 rounded-lg border border-white/10 bg-cyber-bg/70 px-3 py-2 backdrop-blur-md">
-                  <p className="text-xs font-medium text-white">Arlington, VA — HQ</p>
+                  <p className="text-xs font-medium text-white">Arlington, VA (HQ)</p>
                   <p className="text-[10px] text-cyber-muted">38.8796° N, 77.1068° W</p>
                 </div>
               </div>

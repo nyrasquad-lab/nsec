@@ -57,7 +57,7 @@ export default function SecurityDashboard() {
               Your security, <span className="text-gradient">in real time</span>
             </>
           }
-          subtitle="A unified view of risk, threats and response — the same visibility our SOC delivers to every client."
+          subtitle="A unified view of risk, threats and response. The same visibility our SOC delivers to every client."
         />
 
         <Reveal className="mt-14">

@@ -77,7 +77,7 @@ export default function Hero() {
             className="relative z-20 mt-5 text-base leading-relaxed text-cyber-muted"
           >
             We combine elite offensive expertise, AI-driven threat intelligence,
-            and 24/7 defense operations to safeguard your critical assets —
+            and 24/7 defense operations to safeguard your critical assets
             across cloud, network, and endpoint.
           </motion.p>
 

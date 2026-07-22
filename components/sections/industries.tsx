@@ -16,7 +16,7 @@ import SectionHeading from '../section-heading';
 import Reveal from '../reveal';
 
 const INDUSTRIES = [
-  { icon: Landmark, title: 'Financial', desc: 'Banking, fintech & insurance — fraud, ransomware and regulatory resilience.' },
+  { icon: Landmark, title: 'Financial', desc: 'Banking, fintech & insurance: fraud, ransomware and regulatory resilience.' },
   { icon: HeartPulse, title: 'Healthcare', desc: 'HIPAA-aligned protection for patient data, medical devices and EHR systems.' },
   { icon: Building, title: 'Government', desc: 'Sovereign-grade defense for agencies, critical infrastructure and public services.' },
   { icon: GraduationCap, title: 'Education', desc: 'Safeguarding student records, research IP and distributed campus networks.' },

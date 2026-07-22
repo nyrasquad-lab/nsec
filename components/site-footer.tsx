@@ -54,7 +54,7 @@ export default function SiteFooter() {
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-cyber-muted">
               Protecting Organizations Against Modern Cyber Threats. Elite,
-              enterprise-grade cybersecurity — from offensive validation to
+              enterprise-grade cybersecurity, from offensive validation to
               continuous defense.
             </p>
 
