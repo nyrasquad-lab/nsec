@@ -67,7 +67,6 @@ Deno.serve(async (req: Request) => {
       });
     }
 
-    // Email notification (best-effort)
     const statusLabels: Record<string, string> = {
       open: "Open", in_progress: "In Progress", resolved: "Resolved", closed: "Closed",
     };
