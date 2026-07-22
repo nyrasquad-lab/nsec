@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock } from 'lucide-react';
 import SectionHeading from '../section-heading';
 import Reveal from '../reveal';
-import { supabase } from '@/lib/supabase-client';
+import { getSupabase } from '@/lib/supabase-client';
 
 type Post = {
   id: string;
@@ -31,7 +31,7 @@ export default function Blog() {
   useEffect(() => {
     let active = true;
     (async () => {
-      const { data, error } = await supabase
+      const { data, error } = await getSupabase()
         .from('posts')
         .select('id, category, title, excerpt, read_time, published_at, image_url')
         .order('created_at', { ascending: false })
