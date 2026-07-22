@@ -57,7 +57,7 @@ export default function SecurityDashboard() {
               Your security, <span className="text-gradient">in real time</span>
             </>
           }
-          subtitle="A unified view of risk, threats and response — the same visibility our SOC delivers to every client. All metrics below are demo content."
+          subtitle="A unified view of risk, threats and response — the same visibility our SOC delivers to every client."
         />
 
         <Reveal className="mt-14">
@@ -73,7 +73,7 @@ export default function SecurityDashboard() {
                   NSEC SOC · Global Posture
                 </span>
               </div>
-              <span className="text-xs text-cyber-muted">Updated continuously · demo data</span>
+              <span className="text-xs text-cyber-muted">Updated continuously</span>
             </div>
 
             {/* metric grid */}

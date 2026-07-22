@@ -77,9 +77,6 @@ export default function SiteFooter() {
                   {!sent && <ArrowRight className="h-4 w-4" />}
                 </button>
               </div>
-              <p className="mt-2 text-xs text-cyber-muted">
-                Demo — no emails are sent or stored.
-              </p>
             </form>
           </div>
 
@@ -145,9 +142,6 @@ export default function SiteFooter() {
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-xs text-cyber-muted">
             © {new Date().getFullYear()} NSEC Intelligence Group. All rights reserved.
-          </p>
-          <p className="text-xs text-cyber-muted">
-            All content is demonstrative placeholder data.
           </p>
         </div>
       </div>

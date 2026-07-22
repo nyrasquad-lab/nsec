@@ -67,7 +67,7 @@ export default function WhyChooseUs() {
               Built on expertise, <span className="text-gradient">proven in the field</span>
             </>
           }
-          subtitle="Organizations choose NSEC Intelligence Group for the depth of our operators and the speed of our response. Figures below are demo content."
+          subtitle="Organizations choose NSEC Intelligence Group for the depth of our operators and the speed of our response."
         />
 
         {/* stats */}
